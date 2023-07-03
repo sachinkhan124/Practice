@@ -1,5 +1,7 @@
 package com.example.validation.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,12 @@ public class UserServiceImpl implements IUserService {
         user.setPassword(userDto.getPassword());
         userRepository.save(user);
 		return userDto;
+	}
+
+	@Override
+	public List<User> getAllusers() {
+		
+		return userRepository.findAll();
 	}
 	
 //	public User createUser(User user) {
